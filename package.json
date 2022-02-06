@@ -1,0 +1,25 @@
+{
+  "name": "batatabit",
+  "version": "1.0.0",
+  "description": "Batatabit landing page",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osoriodev/batatabit.git"
+  },
+  "keywords": [],
+  "author": "David Osorio <osoriodev@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/osoriodev/batatabit/issues"
+  },
+  "homepage": "https://github.com/osoriodev/batatabit#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.49.7"
+  }
+}
