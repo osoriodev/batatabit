@@ -1,0 +1,58 @@
+@use '../utils' as *;
+
+.header {
+  width: 100%;
+  padding: rem(60) rem(20);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-image: linear-gradient(207.8deg, $clr-tertiary-dk 16.69%, $clr-primary 100%);
+
+  @include respond-to('medium') {
+    padding: rem(120) rem(20);
+  }
+
+  &__logo {
+    margin-bottom: rem(40);
+
+    @include respond-to('medium') {
+      width: rem(220);
+    }
+  }
+
+  &__title {
+    max-width: rem(720);
+    margin-bottom: rem(20);
+    color: $clr-ntrl-max;
+    font-size: rem(24);
+
+    @include respond-to('medium') {
+      font-size: rem(32);
+    }
+  }
+
+  &__desc {
+    max-width: rem(400);
+    color: $clr-primary-lt;
+    font-size: rem(14);
+
+    @include respond-to('medium') {
+      font-size: rem(16);
+    }
+  }
+
+  &__link {
+    padding: rem(15) rem(20);
+    position: absolute;
+    bottom: 0;
+    transform: translateY(50%);
+    border-radius: rem(5);
+    font-size: rem(14);
+    font-weight: 700;
+    background-color: $clr-helper;
+    color: $clr-tertiary;
+    box-shadow: 0 4px 8px fade-out($clr-tertiary, 0.84);
+  }
+}
