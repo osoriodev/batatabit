@@ -55,6 +55,20 @@
     }
   }
 
+  &__icon {
+    width: rem(15);
+    height: rem(15);
+    margin-left: rem(10);
+    transform: translateY(rem(1.6));
+
+    &--down {
+      background-image: url('/assets/icons/trending-down.svg');
+    }
+    &--up {
+      background-image: url('/assets/icons/trending-up.svg');
+    }
+  }
+
   &__foot {
     padding-top: rem(10);
     line-height: 1;

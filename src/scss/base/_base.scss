@@ -15,34 +15,10 @@ a {
   color: inherit;
 }
 
-// Icons styles
-[class^="icon"] {
+// Icon styles
+i {
   display: inline-block;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-.icon-arrow-d {
-  width: rem(13);
-  height: rem(8);
-  margin-left: rem(10);
-  background-image: url('/assets/icons/down-arrow.svg');
-}
-
-.icon-trending {
-  width: rem(15);
-  height: rem(15);
-  margin-left: rem(10);
-  transform: translateY(rem(1.6));
-
-  &-d {
-    @extend .icon-trending;
-    background-image: url('/assets/icons/trending-down.svg');
-  }
-
-  &-u {
-    @extend .icon-trending;
-    background-image: url('/assets/icons/trending-up.svg');
-  }
 }

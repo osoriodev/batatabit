@@ -1,0 +1,44 @@
+@use '../utils' as *;
+
+.details {
+  padding: rem(60) rem(20);
+  position: relative;
+  text-align: center;
+  background-color: $clr-tertiary-dk;
+
+  @include respond-to('medium') {
+    padding: rem(80) rem(20);
+  }
+
+  &__icon {
+    width: rem(41);
+    height: rem(25);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('/assets/icons/batata.svg');
+  }
+
+  &__title {
+    margin-bottom: rem(20);
+    color: $clr-ntrl-max;
+  }
+
+  &__desc {
+    margin-bottom: rem(40);
+    color: $clr-base-lt;
+  }
+
+  &__cards {
+    width: fit-content;
+    margin: 0 auto;
+    display: grid;
+    gap: rem(20);
+
+    @include respond-to('medium') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: rem(30);
+    }
+  }
+}

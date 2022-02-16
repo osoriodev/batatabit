@@ -1,0 +1,40 @@
+@use '../utils' as *;
+
+.product {
+  width: 100%;
+  max-width: rem(400);
+  padding: rem(15);
+  border-radius: rem(5);
+  text-align: start;
+  background-color: $clr-tertiary;
+  box-shadow: 0 4px 8px fade-out($clr-ntrl-min, 0.84);
+
+  &__icon {
+    width: rem(20);
+    height: rem(20);
+    margin-bottom: rem(10);
+    display: block;
+
+    &--clock {
+      background-image: url('/assets/icons/clock.svg');
+    }
+    &--eye {
+      background-image: url('/assets/icons/eye.svg');
+    }
+    &--dollar {
+      background-image: url('/assets/icons/dollar-sign.svg');
+    }
+    &--check {
+      background-image: url('/assets/icons/check-circle.svg');
+    }
+  }
+
+  &__title {
+    margin-bottom: rem(15);
+    color: $clr-ntrl-max;
+  }
+
+  &__desc {
+    color: $clr-base-lt;
+  }
+}

@@ -44,5 +44,12 @@
     background-color: $clr-helper;
     color: $clr-tertiary;
     box-shadow: 0 4px 8px fade-out($clr-tertiary, 0.84);
+
+    &-icon {
+      width: rem(13);
+      height: rem(8);
+      margin-left: rem(10);
+      background-image: url('/assets/icons/down-arrow.svg');
+    }
   }
 }
