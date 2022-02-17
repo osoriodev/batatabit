@@ -1,0 +1,20 @@
+@use '../utils' as *;
+
+.banner {
+  min-height: rem(360);
+  padding-top: rem(60);
+  text-align: center;
+  background: url('/assets/img/bitcoin-woman.png') center / cover no-repeat;
+
+  @include respond-to('medium') {
+    padding-top: rem(80);
+    background-image: url('/assets/img/bitcoin-woman-alt.png');
+    background-size: rem(710);
+    background-position: center rem(-140);
+    background-color: #C67D33;
+  }
+
+  &__title {
+    color: $clr-ntrl-max;
+  }
+}
