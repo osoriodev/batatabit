@@ -1,0 +1,48 @@
+@use '../utils' as *;
+
+.footer {
+  padding: rem(40);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: rem(40);
+  background-color: $clr-primary;
+
+  @include respond-to('medium') {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0;
+  }
+
+  &__social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(20);
+
+    @include respond-to('medium') {
+      flex-direction: row;
+      gap: rem(30);
+    }
+  }
+
+  &__item {
+    line-height: 1;
+  }
+
+  &__link {
+    font-size: rem(14);
+    font-weight: 500;
+    color: $clr-ntrl-max;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__img {
+    @include respond-to('medium') {
+      width: rem(80);
+    }
+  }
+}
