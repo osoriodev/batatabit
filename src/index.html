@@ -133,7 +133,50 @@
       <section class="banner">
         <h2 class="banner__title">Conócelo hoy.</h2>
       </section>
+      <section class="plans" id="plans">
+        <h2 class="plans__title">Escoge el plan que mejor se ajuste a ti.</h2>
+        <p class="plans__desc">Cualquier plan te da acceso completo a nuestra plataforma.</p>
+        <div class="carousel">
+          <button class="carousel__btn carousel__btn--left is-hidden" aria-label="Plan anterior">
+            <i class="carousel__icon carousel__icon--left" aria-hidden="true"></i>
+          </button>
+          <div class="carousel__content">
+            <div class="carousel__track">
+              <article class="card active-slide">
+                <h3 class="card__title card__title--basic">Básico</h3>
+                <p class="card__payment">Pago Mensual</p>
+                <p class="card__cost"><sup>$</sup>19</p>
+                <p class="card__desc">*Plan básico aunque con todas las ventajas.</p>
+                <button class="card__btn">Escoger este <i class="card__icon" aria-hidden="true"></i></button>
+              </article>
+              <article class="card">
+                <h3 class="card__title card__title--recommended">Recomendado</h3>
+                <p class="card__payment">Pago Anual</p>
+                <p class="card__cost"><sup>$</sup>99</p>
+                <p class="card__desc">*Ahorras $129 comparado al plan mensual.</p>
+                <button class="card__btn">Escoger este <i class="card__icon" aria-hidden="true"></i></button>
+              </article>
+              <article class="card">
+                <h3 class="card__title card__title--limited">Limitado</h3>
+                <p class="card__payment">De por vida</p>
+                <p class="card__cost"><sup>$</sup>199</p>
+                <p class="card__desc">*Exclusiva para los primeros 100 clientes con precio especial.</p>
+                <button class="card__btn">Escoger este <i class="card__icon" aria-hidden="true"></i></button>
+              </article>
+            </div>
+          </div>
+          <button class="carousel__btn carousel__btn--right" aria-label="Siguiente plan">
+            <i class="carousel__icon" aria-hidden="true"></i>
+          </button>
+          <div class="carousel__nav">
+            <button class="carousel__indicator active-dot" aria-label="Ir al primer plan"></button>
+            <button class="carousel__indicator" aria-label="Ir al segundo plan"></button>
+            <button class="carousel__indicator" aria-label="Ir al tercer plan"></button>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="footer"></footer>
+    <script src="./js/script.js"></script>
   </body>
 </html>

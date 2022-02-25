@@ -1,0 +1,22 @@
+@use '../utils' as *;
+
+.plans {
+  padding: rem(60) rem(20);
+  text-align: center;
+  background-color: $clr-helper;
+
+  @include respond-to('medium') {
+    padding: rem(80) rem(20);
+  }
+
+  &__title {
+    margin-bottom: rem(20);
+    color: $clr-tertiary-dk;
+  }
+
+  &__desc {
+    max-width: rem(350);
+    margin: 0 auto rem(40);
+    color: $clr-tertiary;
+  }
+}

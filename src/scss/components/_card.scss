@@ -1,0 +1,81 @@
+@use '../utils' as *;
+
+.card {
+  width: 100%;
+  margin-top: rem(18);
+  padding: rem(30) rem(15);
+  position: absolute;
+  border-radius: rem(15);
+  background-color: $clr-ntrl-max;
+
+  @include respond-to('large') {
+    max-width: rem(300);
+    position: relative;
+    box-shadow: 0 4px 8px rgba(89, 73, 30, .16);
+  }
+
+  &__title {
+    width: rem(140);
+    padding: rem(10) 0;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: rem(8);
+    font-size: rem(14);
+    font-weight: 700;
+    color: $clr-ntrl-max;
+
+    &--basic {
+      background-color: $clr-secondary;
+    }
+    &--recommended {
+      background-color: $clr-primary;
+    }
+    &--limited {
+      background-color: $clr-tertiary;
+    }
+  }
+
+  &__payment {
+    margin-bottom: rem(20);
+    font-size: rem(14);
+    font-weight: 500;
+    line-height: 1;
+    color: $clr-tertiary;
+  }
+
+  &__cost {
+    margin-bottom: rem(20);
+    font-size: rem(52);
+    font-weight: 700;
+    line-height: 1;
+
+    sup {
+      font-size: rem(14);
+    }
+  }
+
+  &__desc {
+    margin-bottom: rem(20);
+    font-size: rem(14);
+    color: $clr-base;
+  }
+
+  &__btn {
+    padding: rem(10) rem(15);
+    border: rem(2) solid $clr-primary;
+    border-radius: rem(5);
+    font-size: rem(14);
+    font-weight: 500;
+    background-color: $clr-helper;
+    color: $clr-tertiary;
+  }
+
+  &__icon {
+    width: rem(20);
+    height: rem(20);
+    background-image: url('/assets/icons/orange-right-arrow.svg');
+    vertical-align: top;
+  }
+}
