@@ -10,15 +10,21 @@ const dots = Array.from(dotsNav.children);
 
 const slideWidth = slides[0].getBoundingClientRect().width;
 
+const ctaBtns = Array.from(document.querySelectorAll('.card__btn'));
+
 // Arrange the slides next to one another
-if (window.matchMedia('(max-width: 1023px)').matches) {
-  slides.forEach((item, i) => {
-    item.style.left = `${slideWidth * i}px`
-  })
+const arrangeSlides = status => {
+  if (status) {
+    slides.forEach((item, i) => {
+      item.style.left = `${slideWidth * i}px`;
+    })
+  } else {
+    slides.forEach(item => item.style.left = 'auto');
+  }
 }
 
 // Function to move the slide
-const moveSlide = (track, activeSlide, targetSlide) => {
+const moveSlide = (activeSlide, targetSlide) => {
   let amount = targetSlide.style.left;
   track.style.transform = `translateX(-${amount})`;
 
@@ -26,14 +32,8 @@ const moveSlide = (track, activeSlide, targetSlide) => {
   targetSlide.classList.add('active-slide');
 }
 
-// Update the selected dot
-const updateDots = (activeDot, targetDot) => {
-  activeDot.classList.remove('active-dot');
-  targetDot.classList.add('active-dot');
-}
-
-// Change the buttons visibility
-const toggleBtns = n => {
+// Update buttons visibility
+const updateBtns = n => {
   if (n === 0) {
     leftBtn.classList.add('is-hidden');
     rightBtn.classList.remove('is-hidden');
@@ -46,6 +46,40 @@ const toggleBtns = n => {
   }
 }
 
+// Update the selected dot
+const updateDots = (activeDot, targetDot) => {
+  activeDot.classList.remove('active-dot');
+  targetDot.classList.add('active-dot');
+}
+
+// Update the tabindex of card buttons
+const updateTabindex = n => {
+  ctaBtns.forEach(item => item.setAttribute('tabindex', '-1'));
+  ctaBtns[n].removeAttribute('tabindex');
+}
+
+// Reset carousel when I change viewport
+// This is because there is no carousel in the desktop view
+const toggleCarousel = () => {
+  const mq = window.matchMedia('(min-width: 1024px)');
+
+  if (mq.matches) {
+    track.style.transform = 'none';
+    arrangeSlides(false);
+    updateBtns(0);
+    slides.forEach(item => item.classList.remove('active-slide'));
+    slides[0].classList.add('active-slide');
+    dots.forEach(item => item.classList.remove('active-dot'));
+    dots[0].classList.add('active-dot');
+    ctaBtns.forEach(item => item.removeAttribute('tabindex'));
+  } else {
+    arrangeSlides(true);
+    updateTabindex(0);
+  }
+}
+
+toggleCarousel();
+
 // When I click left, move slides to the left
 leftBtn.addEventListener('click', () => {
   const activeSlide = track.querySelector('.active-slide');
@@ -54,9 +88,10 @@ leftBtn.addEventListener('click', () => {
   const prevDot = activeDot.previousElementSibling;
   const prevIndex = slides.findIndex(item => item === prevSlide);
 
-  moveSlide(track, activeSlide, prevSlide);
+  moveSlide(activeSlide, prevSlide);
+  updateBtns(prevIndex);
   updateDots(activeDot, prevDot);
-  toggleBtns(prevIndex);
+  updateTabindex(prevIndex);
 })
 
 // When I click right, move slides to the right
@@ -67,9 +102,10 @@ rightBtn.addEventListener('click', () => {
   const nextDot = activeDot.nextElementSibling;
   const nextIndex = slides.findIndex(item => item === nextSlide);
 
-  moveSlide(track, activeSlide, nextSlide);
+  moveSlide(activeSlide, nextSlide);
+  updateBtns(nextIndex);
   updateDots(activeDot, nextDot);
-  toggleBtns(nextIndex);
+  updateTabindex(nextIndex);
 })
 
 // When I click the nav indicators, move to that slide
@@ -82,7 +118,10 @@ dotsNav.addEventListener('click', e => {
   const targetIndex = dots.findIndex(item => item === targetDot);
   const targetSlide = slides[targetIndex];
 
-  moveSlide(track, activeSlide, targetSlide);
+  moveSlide(activeSlide, targetSlide);
+  updateBtns(targetIndex);
   updateDots(activeDot, targetDot);
-  toggleBtns(targetIndex);
+  updateTabindex(targetIndex);
 })
+
+window.addEventListener('resize', () => toggleCarousel());
